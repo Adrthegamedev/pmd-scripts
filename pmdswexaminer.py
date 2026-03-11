@@ -53,10 +53,11 @@ def header(f):
     nbprgislots = bytearray(f.read(2))
     unk17 = bytearray(f.read(2))
     wavilen = bytearray(f.read(4))
+
+    print(year)
     
     flen.reverse()
     version.reverse()
-    year.reverse()
     unk13.reverse()
     pcmdlen.reverse()
     nbwavislots.reverse()
@@ -101,7 +102,7 @@ def header(f):
     writefile.close()
 def sampleinfo(f):
     newstream = bytearray()
-    print("new sample", f.tell())
+    #print("new sample", f.tell())
     
     
     unk1 = bytearray(f.read(2))
@@ -142,6 +143,15 @@ def sampleinfo(f):
     decay2 = bytearray(f.read(1))
     release = bytearray(f.read(1))
     unk57 = bytearray(f.read(1))
+
+    #id.reverse()
+    version.reverse()
+    smplfmt.reverse()
+    unk13.reverse() # ?
+    smplrate.reverse()
+    smplpos.reverse()
+    loopbeg.reverse()
+    looplen.reverse()
 
     newstream.extend(unk1)
     newstream.extend(id)
@@ -195,17 +205,17 @@ def sampleinfo(f):
     #print("wavi unk6", unk6)
     #print("wavi unk7", unk7)
     #print("wavi version", version)
-    print("wavi smplfmt", smplfmt)
+    #print("wavi smplfmt", smplfmt)
     #print("wavi unk9", unk9)
     #print("wavi smplloop", smplloop)
     #print("wavi unk10", unk10)
     #print("wavi unk11", unk11)
     #print("wavi unk12", unk12)
     #print("wavi unk13", unk13)
-    print("wavi smplrate", smplrate)
-    print("wavi smplpos", smplpos)
-    print("wavi loopbeg", loopbeg)
-    print("wavi looplen", looplen)
+    #print("wavi smplrate", smplrate)
+    #print("wavi smplpos", smplpos)
+    #print("wavi loopbeg", loopbeg)
+    #print("wavi looplen", looplen)
     #print("wavi envon", envon)
     #print("wavi envmult", envmult)
     #print("wavi unk19", unk19)
